@@ -7,8 +7,8 @@
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/your-username/qwen3-3b-nsfw.svg)](https://github.com/your-username/qwen3-3b-nsfw)
-[![GitHub Forks](https://img.shields.io/github/forks/your-username/qwen3-3b-nsfw.svg)](https://github.com/your-username/qwen3-3b-nsfw)
+[![GitHub Stars](https://img.shields.io/github/stars/ygttygtt/qwen3-3b-nsfw.svg)](https://github.com/ygttygtt/qwen3-3b-nsfw)
+[![GitHub Forks](https://img.shields.io/github/forks/ygttygtt/qwen3-3b-nsfw.svg)](https://github.com/ygttygtt/qwen3-3b-nsfw)
 
 [English](#english) | [中文](#中文)
 
@@ -67,7 +67,7 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/qwen3-3b-nsfw.git
+git clone https://github.com/ygttygtt/qwen3-3b-nsfw.git
 cd qwen3-3b-nsfw
 
 # 安装依赖
@@ -293,8 +293,8 @@ pip install --upgrade pip
 
 ## 📮 联系方式
 
-- GitHub: [@your-username](https://github.com/your-username)
-- Email: your-email@example.com
+- GitHub: [@ygttygtt](https://github.com/ygttygtt)
+- Email: ygttygtt@gmail.com
 
 ---
 
@@ -327,7 +327,7 @@ This project provides a complete **Qwen3-3B model fine-tuning solution** for adu
 
 ```bash
 # Clone project
-git clone https://github.com/your-username/qwen3-3b-nsfw.git
+git clone https://github.com/ygttygtt/qwen3-3b-nsfw.git
 cd qwen3-3b-nsfw
 
 # Install dependencies
