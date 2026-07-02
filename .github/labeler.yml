@@ -1,0 +1,64 @@
+# 标签配置
+
+# Python 文件
+python:
+  - '**/*.py'
+  - '**/*.pyw'
+
+# 配置文件
+config:
+  - '**/*.yaml'
+  - '**/*.yml'
+  - '**/*.json'
+  - '**/*.toml'
+  - '**/*.cfg'
+  - '**/*.ini'
+
+# 文档
+docs:
+  - '**/*.md'
+  - 'docs/**'
+
+# 测试
+tests:
+  - 'tests/**'
+  - '**/test_*.py'
+  - '**/*_test.py'
+
+# 脚本
+scripts:
+  - 'scripts/**'
+  - '**/*.sh'
+
+# Docker
+docker:
+  - 'Dockerfile'
+  - 'docker-compose.yml'
+  - '.dockerignore'
+
+# GitHub
+github:
+  - '.github/**'
+
+# 依赖
+dependencies:
+  - 'requirements.txt'
+  - 'pyproject.toml'
+  - 'setup.cfg'
+
+# 工具
+tools:
+  - '.editorconfig'
+  - '.gitignore'
+  - '.pre-commit-config.yaml'
+  - 'Makefile'
+  - 'tox.ini'
+  - 'pytest.ini'
+
+# 文档
+documentation:
+  - 'README.md'
+  - 'CONTRIBUTING.md'
+  - 'SECURITY.md'
+  - 'CHANGELOG.md'
+  - 'LICENSE'

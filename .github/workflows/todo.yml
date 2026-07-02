@@ -1,0 +1,24 @@
+name: TODO Comments
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  todo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: TODO to Issue
+        uses: alstr/todo-to-issue-action@v4
+        with:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LABELS: 'todo'

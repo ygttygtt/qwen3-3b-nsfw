@@ -1,0 +1,27 @@
+include LICENSE
+include README.md
+include requirements.txt
+include setup.cfg
+include pyproject.toml
+
+recursive-include configs *.yaml
+recursive-include scripts *.py *.sh
+recursive-include utils *.py
+recursive-include tests *.py
+
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude *.pyo
+global-exclude .git
+global-exclude .gitignore
+global-exclude .editorconfig
+global-exclude .pre-commit-config.yaml
+global-exclude .github
+global-exclude *.md
+global-exclude *.txt
+global-exclude *.json
+global-exclude *.jsonl
+global-exclude Makefile
+global-exclude Dockerfile
+global-exclude docker-compose.yml
+global-exclude .env*

@@ -1,0 +1,33 @@
+# Qwen3-3B 全参数微调配置
+
+# 模型配置
+model_name: "Qwen/Qwen3-3B"
+use_lora: false
+use_quantization: false
+
+# 数据配置
+data_path: "data/train.jsonl"
+max_length: 2048
+eval_split: 0.1
+
+# 训练配置
+epochs: 3
+batch_size: 1
+eval_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 0.00001
+weight_decay: 0.01
+scheduler: "cosine"
+warmup_ratio: 0.1
+
+# 保存和日志
+output_dir: "outputs"
+logging_steps: 10
+save_steps: 200
+save_total_limit: 3
+eval_steps: 200
+report_to: "tensorboard"
+run_name: "qwen3-3b-nsfw-full"
+
+# 优化选项
+gradient_checkpointing: true

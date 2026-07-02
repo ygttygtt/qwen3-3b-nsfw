@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  training:
+    build: .
+    container_name: qwen3-3b-nsfw-training
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./configs:/app/configs
+    command: python scripts/train.py --config configs/lora_config.yaml
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  inference:
+    build: .
+    container_name: qwen3-3b-nsfw-inference
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+    ports:
+      - "8000:8000"
+    command: python scripts/inference.py --model_path outputs/final_model --interactive
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

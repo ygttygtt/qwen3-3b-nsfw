@@ -1,0 +1,93 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: Build package
+        run: python -m build
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            ## 更改内容
+
+            - 请查看 [CHANGELOG.md](CHANGELOG.md) 获取详细更改内容
+
+            ## 安装方式
+
+            ```bash
+            pip install qwen3-3b-nsfw==${{ github.ref_name }}
+            ```
+
+            ## Docker
+
+            ```bash
+            docker pull your-username/qwen3-3b-nsfw:${{ github.ref_name }}
+            ```
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/*
+          asset_name: qwen3-3b-nsfw-${{ github.ref_name }}.tar.gz
+          asset_content application/gzip
+
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          twine upload dist/*
+
+      - name: Update CHANGELOG
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const changelog = fs.readFileSync('CHANGELOG.md', 'utf8');
+            const newVersion = '${{ github.ref_name }}';
+            const today = new Date().toISOString().split('T')[0];
+
+            const newEntry = `## [${newVersion}] - ${today}\n\n### 新增\n- 版本 ${newVersion} 发布\n\n`;
+
+            const updatedChangelog = changelog.replace(
+              '## [未发布]',
+              `## [未发布]\n\n${newEntry}`
+            );
+
+            fs.writeFileSync('CHANGELOG.md', updatedChangelog);

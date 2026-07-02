@@ -1,0 +1,58 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Custom for Python
+*.py text diff=python
+*.pyw text diff=python
+*.pyc binary
+*.pyo binary
+
+# Custom for YAML
+*.yml text
+*.yaml text
+
+# Custom for JSON
+*.json text
+*.jsonl text
+
+# Custom for Markdown
+*.md text diff=markdown
+
+# Custom for Docker
+Dockerfile text
+docker-compose.yml text
+
+# Custom for shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Custom for Windows scripts
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Custom for Makefiles
+Makefile text eol=lf
+
+# Custom for configuration files
+*.cfg text
+*.ini text
+*.toml text
+
+# Custom for binary files
+*.bin binary
+*.pt binary
+*.pth binary
+*.safetensors binary
+*.onnx binary
+
+# Custom for images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+
+# Custom for archives
+*.tar.gz binary
+*.zip binary
+*.rar binary

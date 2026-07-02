@@ -1,0 +1,42 @@
+# 这些是代码所有者，将自动请求他们进行代码审查
+
+# 默认所有者
+* @your-username
+
+# 脚本文件
+scripts/ @your-username
+
+# 配置文件
+configs/ @your-username
+
+# 工具函数
+utils/ @your-username
+
+# 测试文件
+tests/ @your-username
+
+# 文档
+*.md @your-username
+
+# GitHub 配置
+.github/ @your-username
+
+# Docker 配置
+Dockerfile @your-username
+docker-compose.yml @your-username
+
+# Python 配置
+pyproject.toml @your-username
+setup.cfg @your-username
+requirements.txt @your-username
+
+# 测试配置
+pytest.ini @your-username
+tox.ini @your-username
+conftest.py @your-username
+
+# 其他配置
+.gitignore @your-username
+.editorconfig @your-username
+.pre-commit-config.yaml @your-username
+Makefile @your-username

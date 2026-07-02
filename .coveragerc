@@ -1,0 +1,20 @@
+[run]
+source = scripts
+omit =
+    tests/*
+    */__pycache__/*
+    */*.pyc
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if __name__ == .__main__.:
+    raise NotImplementedError
+    pass
+    except ImportError
+    except Exception
+    if typing.TYPE_CHECKING:
+
+[html]
+directory = htmlcov
