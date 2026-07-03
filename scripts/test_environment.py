@@ -25,9 +25,15 @@ def check_package(package_name: str, min_version: str = None) -> Tuple[bool, str
         module = importlib.import_module(package_name)
         version = getattr(module, "__version__", "unknown")
         if min_version and version != "unknown":
-            # 简单版本比较
-            if version < min_version:
-                return False, f"{package_name} {version} (需要 {min_version}+)"
+            # 版本比较
+            from packaging.version import Version
+            try:
+                if Version(version) < Version(min_version):
+                    return False, f"{package_name} {version} (需要 {min_version}+)"
+            except Exception:
+                # fallback: 简单字符串比较
+                if version < min_version:
+                    return False, f"{package_name} {version} (需要 {min_version}+)"
         return True, f"{package_name} {version}"
     except ImportError:
         return False, f"{package_name} 未安装"
