@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:2.0.1-cuda11.8-cudnn8-runtime
+FROM pytorch/pytorch:2.3.1-cuda11.8-cudnn8-runtime
 
 # 设置工作目录
 WORKDIR /app
