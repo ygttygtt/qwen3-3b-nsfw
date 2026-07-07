@@ -15,4 +15,4 @@ pandas>=2.0.0
 tqdm>=4.65.0
 pyyaml>=6.0.0
 einops>=0.7.0
-flash-attn>=2.3.0;platform_system!="Windows"
+flash-attn>=2.8.3.post1;platform_system!="Windows"
